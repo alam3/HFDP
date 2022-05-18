@@ -23,7 +23,8 @@ public class WeatherData : Subject {
 
     public void NotifyObservers() {
         foreach (Observer observer in observers) {
-            observer.Update(temperature, humidity, pressure);
+            // observer.Update(temperature, humidity, pressure);
+            observer.Update(); // Ask Observers to pull the data they need
         }
     }
 
@@ -37,5 +38,17 @@ public class WeatherData : Subject {
         this.humidity = humidity;
         this.pressure = pressure;
         MeasurementsChanged();
+    }
+
+    public float GetTemperature() {
+        return this.temperature;
+    }
+
+    public float GetHumidity() {
+        return this.humidity;
+    }
+
+    public float GetPressure() {
+        return this.pressure;
     }
 }

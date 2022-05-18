@@ -14,9 +14,17 @@ public class HeatIndexDisplay : Observer, DisplayElement {
         weatherData.RegisterObserver(this);
     }
 
-    public void Update(float temperature, float humidity, float pressure) {
-        this.temperature = temperature;
-        this.humidity = humidity;
+    // public void Update(float temperature, float humidity, float pressure) {
+    //     this.temperature = temperature;
+    //     this.humidity = humidity;
+    //     heatIndex = GetHeatIndex();
+    //     Display();
+    // }
+
+    public void Update() {
+        // Get only required data from WeatherData on Update() rather than WeatherData pushing in all data
+        this.temperature = weatherData.GetTemperature();
+        this.humidity = weatherData.GetHumidity();
         heatIndex = GetHeatIndex();
         Display();
     }

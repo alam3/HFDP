@@ -15,12 +15,22 @@ public class StatisticsDisplay : Observer, DisplayElement {
         weatherData.RegisterObserver(this);
     }
 
-    public void Update(float temperature, float humidity, float pressure) {
-        tempQueue.Enqueue(temperature);
+    // public void Update(float temperature, float humidity, float pressure) {
+    //     tempQueue.Enqueue(temperature);
+    //     if (tempQueue.Count() > 5) {
+    //         tempQueue.Dequeue();
+    //     }
+
+    //     Display();
+    // }
+
+    public void Update() {
+        // Get only required data from WeatherData on Update() rather than WeatherData pushing in all data
+        tempQueue.Enqueue(weatherData.GetTemperature());
         if (tempQueue.Count() > 5) {
             tempQueue.Dequeue();
         }
-
+        
         Display();
     }
 

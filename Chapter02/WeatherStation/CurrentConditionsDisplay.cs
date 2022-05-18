@@ -13,10 +13,17 @@ public class CurrentConditionsDisplay : Observer, DisplayElement {
         weatherData.RegisterObserver(this);
     }
 
-    public void Update(float temperature, float humidity, float pressure) {
-        // This display only uses 2 of the datapoints provided - there is a better way to implement this
-        this.temperature = temperature;
-        this.humidity = humidity;
+    // public void Update(float temperature, float humidity, float pressure) {
+    //     // This display only uses 2 of the datapoints provided - there is a better way to implement this
+    //     this.temperature = temperature;
+    //     this.humidity = humidity;
+    //     Display();
+    // }
+
+    public void Update() {
+        // Get only required data from WeatherData on Update() rather than WeatherData pushing in all data
+        this.temperature = weatherData.GetTemperature();
+        this.humidity = weatherData.GetHumidity();
         Display();
     }
 

@@ -13,9 +13,16 @@ public class ForecastDisplay : Observer, DisplayElement {
         weatherData.RegisterObserver(this);
     }
 
-    public void Update(float temperature, float humidity, float pressure) {
+    // public void Update(float temperature, float humidity, float pressure) {
+    //     prevPressure = currPressure;
+    //     currPressure = pressure;
+    //     Display();
+    // }
+
+    public void Update() {
+        // Get only required data from WeatherData on Update() rather than WeatherData pushing in all data
         prevPressure = currPressure;
-        currPressure = pressure;
+        currPressure = weatherData.GetPressure();
         Display();
     }
 
