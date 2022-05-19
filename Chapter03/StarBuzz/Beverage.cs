@@ -3,7 +3,7 @@ public abstract class Beverage {
     // and condiments decorator are defined
     protected string description = "Unknown beverage";
 
-    public string GetDescription() {
+    public virtual string GetDescription() {
         return description;
     }
 
