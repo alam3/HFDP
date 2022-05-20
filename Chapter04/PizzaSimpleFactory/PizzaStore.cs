@@ -1,16 +1,16 @@
 using System;
 
-public class PizzaStore {
-    SimplePizzaFactory factory;
+public abstract class PizzaStore {
+    // SimplePizzaFactory factory;
 
-    public PizzaStore(SimplePizzaFactory factory) {
-        this.factory = factory;
-    }
+    // public PizzaStore(SimplePizzaFactory factory) {
+    //     this.factory = factory;
+    // }
 
     public Pizza OrderPizza(string type) {
         Pizza pizza;
 
-        pizza = factory.CreatePizza(type);
+        pizza = CreatePizza(type);
 
         pizza.Prepare();
         pizza.Bake();
@@ -19,4 +19,7 @@ public class PizzaStore {
 
         return pizza;
     }
+
+    // Example of a "Factory Method"
+    public abstract Pizza CreatePizza(string type);
 }
