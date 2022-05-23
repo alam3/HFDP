@@ -10,7 +10,7 @@ public class ChicagoStylePizzaStore : PizzaStore {
                 pizza = new PepperoniPizza();
                 break;
             case "clam":
-                pizza = new ClamPizza();
+                pizza = new ChicagoStyleClamPizza();
                 break;
             case "veggie":
                 pizza = new VeggiePizza();

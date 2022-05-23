@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace PizzaSimpleFactory {
     class Program {
@@ -7,9 +7,14 @@ namespace PizzaSimpleFactory {
             PizzaStore caStore = new CaliforniaStylePizzaStore();
             PizzaStore ilStore = new ChicagoStylePizzaStore();
 
-            nyStore.OrderPizza("pepperoni");
-            caStore.OrderPizza("veggie");
-            ilStore.OrderPizza("clam");
+            Pizza pizza = nyStore.OrderPizza("pepperoni");
+            WriteLine("James ordered a " + pizza.getName() + "\n");
+
+            pizza = caStore.OrderPizza("veggie");
+            WriteLine("Baxter ordered a " + pizza.getName() + "\n");
+
+            pizza = ilStore.OrderPizza("clam");
+            WriteLine("Horse ordered a " + pizza.getName() + "\n");
         }
     }
 }

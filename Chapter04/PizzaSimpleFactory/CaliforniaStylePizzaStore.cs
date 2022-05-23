@@ -13,7 +13,7 @@ public class CaliforniaStylePizzaStore : PizzaStore {
                 pizza = new ClamPizza();
                 break;
             case "veggie":
-                pizza = new VeggiePizza();
+                pizza = new CaliforniaStyleVeggiePizza();
                 break;
             default:
                 pizza = null;
