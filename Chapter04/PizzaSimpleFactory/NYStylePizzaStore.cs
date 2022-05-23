@@ -4,7 +4,7 @@ public class NYStylePizzaStore : PizzaStore {
 
         switch(type) {
             case "cheese":
-                pizza = new CheesePizza();
+                pizza = new NYStyleCheesePizza();
                 break;
             case "pepperoni":
                 pizza = new PepperoniPizza();
